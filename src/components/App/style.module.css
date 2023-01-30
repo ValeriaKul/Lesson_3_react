@@ -18,3 +18,9 @@
     align-content: space-around;
     text-align: center;
 }
+
+.total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

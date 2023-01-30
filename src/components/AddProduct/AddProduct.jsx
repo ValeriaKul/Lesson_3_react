@@ -6,7 +6,7 @@ export default function AddProduct({createProduct}) {
     const onSubmit = (e) => {
     e.preventDefault();
     const {title, price} = e.target;
-    createProduct(title.value, price.value);
+    createProduct(title.value, +price.value);
     title.value = '';
     price.value = '';
   }

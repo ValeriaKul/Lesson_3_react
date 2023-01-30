@@ -1,69 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddProduct from "../AddProduct/AddProduct";
 import Products from "../Products/Products";
-
+import s from "./style.module.css";
 
 function App() {
-  const defaultProducts = [
-    {id: 1, title: 'велосипед', price: 450},
-    {id: 2, title: 'ролики', price: 250},
-    {id: 3, title: 'самокат', price: 150},
-    {id: 4, title: 'скейт', price: 130},
-    {id: 5, title: 'лыжи', price: 2700},
-    {id: 6, title: 'коньки', price: 150},
-  ]
+  useEffect(() => {
+    (async () => {
+      const resp = await fetch("https://fakestoreapi.com/products");
+      const data = await resp.json();
+      const newArray = data.map(({ id, title, price }) => ({
+        id,
+        title,
+        price,
+      }));
+      setProducts(newArray);
+    })();
+  }, []);
 
-  const [products, setProducts] = useState(defaultProducts);
+  const [products, setProducts] = useState([]);
 
-  const deleteProduct = (id) => {
-    const newEntry = products.filter((product) => product.id !== id);
-    setProducts(newEntry);
-  }
+  const deleteProduct = async (delId) => {
+    const resp = await fetch(`https://fakestoreapi.com/products/${delId}`, {
+      method: "DELETE",
+    });
+    const { id } = await resp.json();
+    setProducts(products.filter((product) => product.id !== id));
+  };
 
-  const createProduct = (title, price) => {
-    const newEntry = {
-      id: Date.now(),
-      title,
-      price
-    }
-    const newArr = [...products, newEntry];
-    setProducts(newArr);
-  }
-
-  // const changePriceMap = (id, value) => {
-  //   const newArr = products.map(product => {
-  //       if (product.id == id){
-  //         product.price += value;
-  //       }
-  //       return product
-  //   })    
-  //   setProducts(newArr);
-  // }
+  const createProduct = async (title, price) => {
+    price = +price.toFixed(2);
+    const resp = await fetch("https://fakestoreapi.com/products", {
+      method: "POST",
+      body: JSON.stringify({ title, price }),
+    });
+    const { id } = await resp.json();
+    setProducts([...products, { id, title, price }]);
+  };
 
   const changePrice = (changeId, value) => {
-    const target = products.find(({id}) => id === changeId);
-    if(target.price + value < 0) {
+    const target = products.find(({ id }) => id === changeId);
+    if (+target.price + value < 0) {
       target.price = 0;
     } else {
       target.price += value;
     }
+    target.price = +target.price.toFixed(2);
     setProducts([...products]);
-  }
-  
+  };
+
   return (
     <div>
-      <AddProduct
-        createProduct={createProduct}/>
-      <div>
-        {
-          products.map(product => 
-          <Products 
-          key={product.id}
-          {...product} 
-          deleteProduct={deleteProduct}
-          changePrice={changePrice}
-          />)
-        }
+      <AddProduct createProduct={createProduct} />
+      <div className={s.total}>
+        {products.map((product) => (
+          <Products
+            key={product.id}
+            {...product}
+            deleteProduct={deleteProduct}
+            changePrice={changePrice}
+          />
+        ))}
       </div>
     </div>
   );
