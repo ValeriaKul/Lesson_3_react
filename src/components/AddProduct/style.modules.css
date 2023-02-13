@@ -1,44 +1,44 @@
 .formAdd {
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    background: linear-gradient(-45deg, white, lightblue);
-    box-shadow: 10px -5px 15px 10px rgba(0,0,0,.5);
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(-45deg, white, lightblue);
+  box-shadow: 10px -5px 15px 10px rgba(0, 0, 0, 0.5);
 }
 .formAdd input {
-    width: 7em;
-    height: 1.5em;
-    border-radius: 6px;
-    background: rgb(208, 228, 235);
-    font-size: 18px;
-    font-style: italic;
+  width: 7em;
+  height: 1.5em;
+  border-radius: 6px;
+  background: rgb(208, 228, 235);
+  font-size: 18px;
+  font-style: italic;
 }
 
 .btnAdd {
-    color: rgb(238, 243, 238);
-    background: rgb(115, 189, 115);
-    border: none;
-    border-radius: 6px; 
-    width: 60px;
+  color: rgb(238, 243, 238);
+  background: rgb(115, 189, 115);
+  border: none;
+  border-radius: 6px;
+  width: 60px;
 }
 
 .btnAdd:hover {
-    color: rgb(10, 10, 10);
-    background: rgb(34, 146, 34);
-    border: 2px solid black;
-    border-radius: 6px; 
-    width: 60px;
-    cursor: pointer;
+  color: rgb(10, 10, 10);
+  background: rgb(34, 146, 34);
+  border: 2px solid black;
+  border-radius: 6px;
+  width: 60px;
+  cursor: pointer;
 }
 
-.style_card__a2b3R{
-    /* position: relative; */
-    width: 250px;
+.style_card__a2b3R {
+  /* position: relative; */
+  width: 250px;
 }
 
 .style_card__a2b3R:hover {
-    background: linear-gradient(-45deg, rgb(192, 237, 252), rgb(60, 199, 246));
-    border-radius: 10px;
-    box-shadow: none;
+  background: linear-gradient(-45deg, rgb(192, 237, 252), rgb(60, 199, 246));
+  border-radius: 10px;
+  box-shadow: none;
 }

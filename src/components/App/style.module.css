@@ -1,26 +1,26 @@
-.products{
-    margin: 10px;
-    text-align: center;
-    font-size: 24px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 700;
-    color: #999;
+.products {
+  margin: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  color: #999;
 }
 
-.container{
-    display: flex;
-    padding: 0 20px;
-    gap: 15px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: space-around;
-    text-align: center;
+.container {
+  display: flex;
+  padding: 0 20px;
+  gap: 15px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-around;
+  text-align: center;
 }
 
 .total {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
